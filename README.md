@@ -2,8 +2,6 @@
 
 This project was created using ReactJs, FramerMotion and TailwindCSS.
 
-## Available Scripts
-
 ## What is this game?
 
 The typical hangman game, where you can face your friend in a 1 vs 1. A game with turns, player 1 must write the word for player 2 and player 2 must guess it.
