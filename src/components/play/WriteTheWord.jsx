@@ -58,7 +58,7 @@ export const WriteTheWord = () => {
         </Link>
       </div>
 
-      <div className="flex flex-row  w-full justify-between mt-5 sm:px-10 bg-blue-200">
+      <div className="flex flex-row  w-full justify-between mt-5 sm:px-10">
         <img
           src={sixMistake}
           alt=""
