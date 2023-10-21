@@ -10,14 +10,20 @@ import { Link } from "react-router-dom";
 export const WriteTheWord = () => {
   const { names, turn } = useSelector((state) => state);
   const dispatch = useDispatch();
-  const [isGreaterThanFive, setIsGreaterThanFive] = useState(false);
+  const [isValidWord, setIsValidWord] = useState(false);
+
+  function characterSpecial(word) {
+    var patron = /[^a-zA-Z]/;
+
+    return patron.test(word);
+  }
 
   const handlewordChange = (event) => {
     const { value } = event.target;
-    if (value.length > 4) {
-      setIsGreaterThanFive(true);
+    if (value.length > 4 && !characterSpecial(value)) {
+      setIsValidWord(true);
     } else {
-      setIsGreaterThanFive(false);
+      setIsValidWord(false);
     }
     const wordUpperCase = value.toUpperCase();
     dispatch(writeWord(wordUpperCase));
@@ -49,9 +55,9 @@ export const WriteTheWord = () => {
           />
           <img src={underLineBlack} alt="" className="w-full" />
         </div>
-        <Link to={isGreaterThanFive ? "/inGame" : null}>
+        <Link to={isValidWord ? "/inGame" : null}>
           <img
-            src={isGreaterThanFive ? check : cancel}
+            src={isValidWord ? check : cancel}
             alt=""
             className="w-[30px] h-[30px] sm:w-[40px] sm:h-[40px]  lg:w-[55px] lg:h-[55px]"
           />
